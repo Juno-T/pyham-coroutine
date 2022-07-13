@@ -68,7 +68,7 @@ myham.CALL(loop_machine)
 assert(len(replay_buffer)==9) # 9 transitions, since there are ten choice points and env did not terminated yet
 ```
 
-Notice that each machine can only takes two arguments, `ham` and `args`. `ham` is the current instance of HAM. You can access many useful info like `ham._current_observation` `ham._tau`(time since previous choicepoint) or `ham._machine_stack`. `args` is specified when you call the machine with `ham.CALL`. 
+Notice that each machine can only takes two arguments, `ham` and `args`. `ham` is the current instance of HAM. You can access many useful info like `ham._current_observation` or `ham._machine_stack`. `args` is specified when you call the machine with `ham.CALL`. 
 
 This is a simple example. You can put whatever you want in these machines. For example, inside choice machine, you can call an external value approximator like dqn given `ham._current_observation` and return the choice selected. You can also reduced your action machine if it's just returning trivial action by using `ham.CALL_action`. Details are in the code and doc string and some example in the test.
 
