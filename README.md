@@ -74,4 +74,4 @@ This is a simple example. You can put whatever you want in these machines. For e
 
 
 ## Limitation
-Although this implementation of HAMs is pretty concise and straight-forward for the user, the limitation of coroutine makes it hard for users to integrate HAMs with existing popular RL algorithm implementation. 
+Although this implementation of HAMs is pretty concise and straight-forward for the user, the limitation of coroutine makes it hard for users to integrate HAMs with existing popular RL algorithm implementation. Their training function usually takes `gym.env`-like instance.
