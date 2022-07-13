@@ -1,6 +1,6 @@
-# Python implementation of Hierarchies of Abstract Machine (HAM) as a python's coroutine.
+# Python implementation of Hierarchies of Abstract Machines (HAMs) as a python's coroutine.
 
-Hierarchies of Abstract Machine, also known as HAM, is a framework for hierarchical reinforcement learning (HRL) which was first introduced in [this paper](https://proceedings.neurips.cc/paper/1997/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf)(Parr & Russell, 1997). HAM is essentially a finite state machine which could be easily implemented with coroutine in python. 
+Hierarchies of Abstract Machines, also known as HAMs, is a framework for hierarchical reinforcement learning (HRL) which was first introduced in [this paper](https://proceedings.neurips.cc/paper/1997/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf)(Parr & Russell, 1997). HAMs is essentially a finite state machine which could be easily implemented with coroutine in python. 
 
 In the original paper, there are 4 types of machine, ACTION, CHOICE, CALL, STOP. Since we are using normal python's function to define machines, we don't need to have CALL or STOP machine. CALL machine becomes simply `ham.CALL(func, args=None)` and STOP machine becomes python's native `return` statement. Additionally, FUNCTIONAL machine is introduced for convenient purpose. Any thing that isn't ACTION or CHOICE can be registered as a FUNCTIONAL machine. More on that in the example.
 
@@ -11,7 +11,7 @@ In the original paper, there are 4 types of machine, ACTION, CHOICE, CALL, STOP.
 
 First, add this repo to your `$PYTHONPATH`.
 
-Next, setup our HAM. It requires primitive action executor (`env_exe`), a method that get called when a new transition is available (`transition_handler`) and internal reward discount value (`discount`)
+Next, setup our HAMs. It requires primitive action executor (`env_exe`), a method that get called when a new transition is available (`transition_handler`) and internal reward discount value (`discount`)
 
 ``` python
 
@@ -62,7 +62,7 @@ assert(myham.machine_count==3) # Registered three machines
 # Must be called before each episode.
 myham.episodic_reset("initial observation")
 
-# Start HAM by calling your top level machine
+# Start HAMs by calling your top level machine
 myham.CALL(loop_machine)
 
 assert(len(replay_buffer)==9) # 9 transitions, since there are ten choice points and env did not terminated yet
@@ -74,4 +74,4 @@ This is a simple example. You can put whatever you want in these machines. For e
 
 
 ## Limitation
-Although this implementation of HAM is pretty concise and straight-forward for the user, the limitation of coroutine makes it hard for users to integrate HAM with existing popular RL algorithm implementation. 
+Although this implementation of HAMs is pretty concise and straight-forward for the user, the limitation of coroutine makes it hard for users to integrate HAMs with existing popular RL algorithm implementation. 
