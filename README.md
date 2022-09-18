@@ -1,5 +1,7 @@
 # Python implementation of Hierarchies of Abstract Machines (HAMs) as a python's coroutine.
 
+**:warning: Abandoned because of the limitation. [See new repo here](https://github.com/Juno-T/pyham)**
+
 Hierarchies of Abstract Machines, also known as HAMs, is a framework for hierarchical reinforcement learning (HRL) which was first introduced in [this paper](https://proceedings.neurips.cc/paper/1997/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf)(Parr & Russell, 1997). HAMs is essentially a finite state machine which could be easily implemented with coroutine in python. 
 
 In the original paper, there are 4 types of machine, ACTION, CHOICE, CALL, STOP. Since we are using normal python's function to define machines, we don't need to have CALL or STOP machine. CALL machine becomes simply `ham.CALL(func, args=None)` and STOP machine becomes python's native `return` statement. Additionally, FUNCTIONAL machine is introduced for convenient purpose. Any thing that isn't ACTION or CHOICE can be registered as a FUNCTIONAL machine. More on that in the example.
